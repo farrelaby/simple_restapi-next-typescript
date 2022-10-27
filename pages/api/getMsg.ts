@@ -1,20 +1,28 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { PrismaClient } from '@prisma/client';
 
-const get = {
-  method: 'GET',
-  msg: 'Success',
-};
+const prisma = new PrismaClient();
 
 const err = {
-  msg: 'ERROR',
+  msg: 'Method not allowed',
 };
 
-function getMsg(req: NextApiRequest, res: NextApiResponse) {
+async function getAbsen(req: NextApiRequest, res: NextApiResponse) {
+  try {
+    const allabsen = await prisma.absen.findMany();
+    return res.status(200).json(allabsen);
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: 'error reading from database' });
+  }
+}
+
+async function getAbsenhandler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
-    res.status(200).json(get);
+    return await getAbsen(req, res);
   } else {
     res.status(404).json(err);
   }
 }
 
-export default getMsg;
+export default getAbsenhandler;
