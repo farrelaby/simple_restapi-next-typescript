@@ -1,19 +1,14 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import type { NextApiRequest, NextApiResponse } from "next";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-const post = {
-  method: 'POST',
-  msg: 'OK',
-};
-
 const err = {
-  msg: 'ERROR',
+  msg: "ERROR",
 };
 
 async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
-  const body = req.body;
+  const body = JSON.parse(req.body);
   try {
     const newAdd = await prisma.absen.create({
       data: {
@@ -24,13 +19,13 @@ async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json(newAdd);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'error reading from database' });
+    return res.status(500).json({ error: "error reading from database" });
   }
 }
 
 async function postMsg(req: NextApiRequest, res: NextApiResponse) {
-  console.log(req.body);
-  if (req.method === 'POST') {
+  // console.log(req.body);
+  if (req.method === "POST") {
     return await postAbsen(req, res);
   } else {
     res.status(404).json(err);

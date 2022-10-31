@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
+import type { NextApiRequest, NextApiResponse } from "next";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 const err = {
-  msg: 'Method not allowed',
+  msg: "Method not allowed",
 };
 
 async function updateAbsen(req: NextApiRequest, res: NextApiResponse) {
@@ -12,7 +12,7 @@ async function updateAbsen(req: NextApiRequest, res: NextApiResponse) {
   try {
     const updabsen = await prisma.absen.update({
       where: {
-        id: body.id,
+        niu: body.niu,
       },
       data: {
         nama: body.nama,
@@ -21,12 +21,12 @@ async function updateAbsen(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json({ updabsen });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: 'error reading from database' });
+    return res.status(500).json({ error: "error reading from database" });
   }
 }
 
 async function updMsg(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'PATCH') {
+  if (req.method === "PATCH") {
     return await updateAbsen(req, res);
   } else {
     res.status(404).json(err);
