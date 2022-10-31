@@ -20,52 +20,17 @@ const Home: NextPage = () => {
         </h1>
 
         <p className={styles.description}>
-          Bisa buat method <code className={styles.code}>GET</code>
-          dan <code className={styles.code}>POST</code>
+          Selamat datang! <br /> Di web ini, kalian bisa bermain dengan protokol{" "}
+          <code className={styles.code}>HTTP</code> sederhana!
         </p>
 
         <div className={styles.grid}>
-          {/* <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a> */}
           <Link href="/docu">
             <a className={styles.card}>
-              <h2>API Check &rarr;</h2>
-              <p>Klik ini buat cek Endpointnya</p>
+              <h2>Absensi &rarr;</h2>
+              <p>Klik ini buat absen</p>
             </a>
           </Link>
-          <h1 style={{ textAlign: "center" }}>
-            Cek di{" "}
-            <a href="https://www.postman.com/" style={{ color: "#0070f3" }}>
-              Postman
-            </a>{" "}
-            buat metode <code className={styles.code}>GET</code> dan{" "}
-            <code className={styles.code}>POST</code> pake link semua Endpoint
-          </h1>
         </div>
       </main>
 

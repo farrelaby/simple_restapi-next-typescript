@@ -21,7 +21,12 @@ async function updateAbsen(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json({ updabsen });
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: "error reading from database" });
+    return res
+      .status(500)
+      .json({
+        error: "error reading from database",
+        format: "body diisi nama & niu ya :)",
+      });
   }
 }
 

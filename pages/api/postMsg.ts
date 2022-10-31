@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const err = {
-  msg: "ERROR",
+  msg: "Method not allowed",
 };
 
 async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
@@ -19,7 +19,10 @@ async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json(newAdd);
   } catch (error) {
     console.log(error);
-    return res.status(500).json({ error: "error reading from database" });
+    return res.status(500).json({
+      error: "error reading from database",
+      format: "body diisi nama & niu ya :)",
+    });
   }
 }
 

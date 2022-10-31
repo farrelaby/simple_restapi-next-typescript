@@ -48,30 +48,30 @@ export function Form() {
     <div className="w-full max-w-xs">
       <form
         // onReset={}
-        className="container mr-8 py-8 flex flex-col gap-8 items-center border-solid border-1 border-sky-500 bg-slate-100 text-slate-900 shadow-md rounded"
+        className="container py-8 flex flex-col gap-8 items-center border-solid border-1 border-sky-500 bg-slate-100 text-slate-900 shadow-md shadow-blue-300 rounded"
       >
         <div className="flex flex-row gap-4">
           <label htmlFor="nama">Nama</label>
           <input
-            className="text-white pl-2"
+            className="text-white pl-2 rounded shadow-md"
             type="text"
             onChange={changeNama}
             id="nama"
           />
         </div>
         <div className="flex flex-row gap-4">
-          <label htmlFor="niu" className="pr-2">
+          <label htmlFor="niu" className="pr-4">
             NIU
           </label>
           <input
-            className="pl-2 text-white"
+            className="pl-2 text-white rounded shadow-md"
             type="number"
             onChange={changeNiu}
             id="niu"
           />
         </div>
         <button
-          className="bg-blue-500 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded"
+          className="bg-blue-500 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded shadow-md"
           onClick={postAbsen}
         >
           Submit
