@@ -8,12 +8,13 @@ const err = {
 };
 
 async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
-  const body = JSON.parse(req.body);
+  const body = req.body;
   try {
+    console.log(body);
     const newAdd = await prisma.absen.create({
       data: {
         nama: body.nama,
-        niu: body.niu,
+        niu: Number(body.niu),
       },
     });
     return res.status(200).json(newAdd);
@@ -21,7 +22,6 @@ async function postAbsen(req: NextApiRequest, res: NextApiResponse) {
     console.log(error);
     return res.status(500).json({
       error: "error reading from database",
-      format: "body diisi nama & niu ya :)",
     });
   }
 }

@@ -24,10 +24,10 @@ export function Form() {
       try {
         const res = await fetch("../api/postMsg", {
           method: "POST",
-          body: JSON.stringify({
+          body: {
             nama: nama,
             niu: niu,
-          }),
+          },
         });
         if (res.status === 200) {
           console.log("POST aman");
